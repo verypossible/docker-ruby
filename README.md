@@ -1,1 +1,3 @@
-# spartanruby
+# Spartan Docker Ruby
+
+## Usage
