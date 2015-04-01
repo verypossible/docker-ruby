@@ -43,6 +43,8 @@ RUN apt-get update \
 && ./configure --disable-install-doc \
 && make -j"$(nproc)" \
 && make install \
+&& curl -sL https://deb.nodesource.com/setup_0.12 | bash - \
+&& apt-get install -y nodejs
 && apt-get purge -y --auto-remove bison libgdbm-dev \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
