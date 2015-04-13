@@ -51,7 +51,7 @@ RUN apt-get update \
 && rm -r /usr/src/ruby \
 && echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc" \
 && cd / \
-&& gem install bundler \
+&& gem install bundler rails:4.2.1 puma:2.11.2 nokogiri:1.6.6.2 slim-rails:3.0.1 bitters:1.0.0 bourbon:4.2.2 neat:1.7.2 normalize-rails:3.0.1 sass-rails:5.0.3 \
 && bundle config --global path "$GEM_HOME" \
 && bundle config --global bin "$GEM_HOME/bin" \
 && mkdir /app
