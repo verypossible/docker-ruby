@@ -60,7 +60,6 @@ WORKDIR /app/
 EXPOSE 3000
 
 ONBUILD ADD Gemfile* /app/
-ONBUILD ADD vendor/cache /app/vendor/cache
 ONBUILD RUN BUNDLE_JOBS=$(cat /proc/cpuinfo | grep cores | cut -d':' -f2 | head -n1 | xargs expr -1 +) bundle install
 ONBUILD ADD . /app/
 ONBUILD RUN chmod 744 deploy/start_services.sh
