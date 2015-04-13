@@ -52,24 +52,6 @@ RUN apt-get update \
 && echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc" \
 && cd / \
 && gem install bundler \
-    bitters:1.0.0 \
-    bourbon:4.2.2 \
-    capybara:2.4.4 \
-    coffee-script:2.4.1 \
-    devise:3.4.1 \
-    execjs:2.5.2 \
-    neat:1.7.2 \
-    nokogiri:1.6.6.2 \
-    normalize-rails:3.0.1 \
-    pry:0.10.1 \
-    puma:2.11.2 \
-    sass-rails:5.0.3 \
-    simple_form:3.1.0 \
-    slim-rails:3.0.1 \
-    spring:1.3.4 \
-    rails:4.2.1 \
-    rails_12factor:0.0.3 \
-    rspec-rails:3.2.1 \
 && bundle config --global path "$GEM_HOME" \
 && bundle config --global bin "$GEM_HOME/bin" \
 && mkdir /app
