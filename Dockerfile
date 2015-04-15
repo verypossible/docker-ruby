@@ -37,7 +37,7 @@ RUN apt-get update \
   libyaml-dev \
   zlib1g-dev \
 && mkdir -p /usr/src/ruby \
-1& curl -SL "http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.bz2" | tar -xjC /usr/src/ruby --strip-components=1 \
+&& curl -SL "http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.bz2" | tar -xjC /usr/src/ruby --strip-components=1 \
 && cd /usr/src/ruby \
 && autoconf \
 && ./configure --disable-install-doc \
@@ -53,4 +53,4 @@ RUN apt-get update \
 && cd / \
 && gem install bundler \
 && bundle config --global path "$GEM_HOME" \
-&& bundle config --global bin "$GEM_HOME/bin" \
+&& bundle config --global bin "$GEM_HOME/bin"
