@@ -15,6 +15,7 @@ RUN apt-get update \
   autoconf \
   bison \
   build-essential \
+  freetds-dev \
   imagemagick \
   libbz2-dev \
   libcurl4-openssl-dev \
