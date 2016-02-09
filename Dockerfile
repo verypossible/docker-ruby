@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:stable
 MAINTAINER Colin Rymer <colin.rymer@gmail.com>
 
 ENV GEM_HOME /usr/local/bundle
@@ -38,7 +38,7 @@ RUN apt-get update \
   libyaml-dev \
   zlib1g-dev \
 && mkdir -p /usr/src/ruby \
-&& curl -SL "http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.bz2" | tar -xjC /usr/src/ruby --strip-components=1 \
+&& curl -SL "http://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.bz2" | tar -xjC /usr/src/ruby --strip-components=1 \
 && cd /usr/src/ruby \
 && autoconf \
 && ./configure --disable-install-doc \
