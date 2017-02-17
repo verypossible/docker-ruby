@@ -1,21 +1,24 @@
 FROM debian:stable
-MAINTAINER Colin Rymer <colin.rymer@gmail.com>
+MAINTAINER David Miller <dmiller@joinspartan.com>
 
 ENV GEM_HOME /usr/local/bundle
 ENV PATH $GEM_HOME/bin:$PATH
 ENV BUNDLE_APP_CONFIG $GEM_HOME
+ENV RUBY_DOWNLOAD_URL https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz
 
 RUN apt-get update \
 && apt-get install -y --no-install-recommends \
-  wget \
   ca-certificates \
   curl \
   git \
+  wget \
 && apt-get install -y \
   autoconf \
+  bash \
   bison \
   build-essential \
   freetds-dev \
+  glibc \
   imagemagick \
   libbz2-dev \
   libcurl4-openssl-dev \
@@ -36,9 +39,12 @@ RUN apt-get update \
   libxml2-dev \
   libxslt-dev \
   libyaml-dev \
+  pcre \
+  selinux \
+  systemd \
   zlib1g-dev \
 && mkdir -p /usr/src/ruby \
-&& curl -SL "http://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.bz2" | tar -xjC /usr/src/ruby --strip-components=1 \
+&& curl -SL "$RUBY_DOWNLOAD_URL" | tar -xjC /usr/src/ruby --strip-components=1 \
 && cd /usr/src/ruby \
 && autoconf \
 && ./configure --disable-install-doc \
